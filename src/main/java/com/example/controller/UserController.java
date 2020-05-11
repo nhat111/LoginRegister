@@ -43,7 +43,7 @@ public class UserController {
 		return "login";
 	}
 
-	@GetMapping("/registration")
+	@GetMapping("/signup")
 	public String showRegisterPage(Model model) {
 		return "register";
 	}
@@ -52,18 +52,18 @@ public class UserController {
 		return "profile";
 	}
 
-	@PostMapping("/registration")
+	@PostMapping("/signup")
 	public String registerAccout(@ModelAttribute("user") UserForm userForm) {
 		userService.save(userForm);
 		
-		return "redirect:/";
+		return "redirect:/login";
 	}
 	 
 	@PostMapping("/login")
 	public String signin(@ModelAttribute("user") UserForm userForm) {
 		
 		if(!userRepository.existsByUserName(userForm.getUserName())) {
-			return"redirect:/";
+			return"redirect:/register";
 				
 		}
 		User user = userRepository.findUserByUserName(userForm.getUserName());
