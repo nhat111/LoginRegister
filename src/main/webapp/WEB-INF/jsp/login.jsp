@@ -20,11 +20,9 @@
 
 			<label for="uname" id="un">Username:</label> <input type="text"
 				name="userName" id="uname"><br /> <br /> <label
-				for="upass" id="ps">Password:</label> <input type="password"
-				name="password" id="upass"><br /> <br />
+				for="upass" id="ps">Password:</label> 
+				<input type="password"name="password" id="upass"><br /> <br />
 			<button type="submit" value="Submit" >Login</button>
-
-			<!-- Note:-use "&amp;nbsp"(use in html) or "margin"(left/right in css in head tag) to adjust the space) -->
 
 			<a href="signup">Signup</a>
 
