@@ -18,7 +18,8 @@ import com.example.service.UserService;
 
 @Controller
 @RequestMapping("")
-public class UserController {
+public class UserController {	
+	private String msgError ;
 
 	private String userName;
 	private String firstName;
@@ -37,6 +38,10 @@ public class UserController {
 	public UserForm userForm() {
 		return new UserForm();
 	}
+	
+
+	
+	
 
 	@GetMapping("/login")
 	public String showLoginPage(Model model) {
@@ -50,6 +55,11 @@ public class UserController {
 
 	@PostMapping("/signup")
 	public String registerAccout(@ModelAttribute("user") UserForm userForm) {
+		if (userRepository.existsByUserName(userForm.getUserName())) {
+		    msgError = "user exist";
+			return "redirect:/msgerror";
+		}
+
 		userService.save(userForm);
 
 		return "redirect:/login";
@@ -74,11 +84,12 @@ public class UserController {
 			birthDay = user.getBirthDay();
 			gender = user.getGender();
 			address = user.getAddress();
-			
+
 			return "redirect:/profile";
 
 		} else {
-			return "redirect:/error.html";
+			 msgError = "password does't match";
+				return "redirect:/msgerror";
 		}
 	}
 
@@ -90,8 +101,15 @@ public class UserController {
 		model.addAttribute("birthDay", birthDay);
 		model.addAttribute("gender", gender);
 		model.addAttribute("address", address);
-		
-		
+
 		return "profile";
 	}
+	
+	@GetMapping("/msgerror")
+	public String home(Model model) {
+		model.addAttribute("message", msgError);
+		return "errorpage";
+	}
+
+	
 }

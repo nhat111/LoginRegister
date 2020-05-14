@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,9 +23,12 @@ public class User {
 	private Long id;
 	
 	@Column(name = "user_name")
+	@Size(min = 3, max = 20)
+	@Pattern(regexp = "^[a-zA-Z0-9_]+$")
 	private String userName;
 	
 	@Column(name = "password")
+	@Pattern(regexp = "(?=.*?[~`!@#$%^&*()-+]).{8,}")
 	private String password;
 	
 	@Column(name = "first_name")
