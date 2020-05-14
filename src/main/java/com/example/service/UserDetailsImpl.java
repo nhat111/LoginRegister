@@ -7,15 +7,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.model.User;
 
-
-
-public class UserDetailsImpl implements UserDetails{
+public class UserDetailsImpl implements UserDetails {
 
 	private String userName;
 
 	private String password;
-	
-
 
 	public UserDetailsImpl(String userName, String password) {
 		this.userName = userName;
@@ -25,7 +21,7 @@ public class UserDetailsImpl implements UserDetails{
 	public UserDetailsImpl(User user) {
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
-		
+
 	}
 
 	@Override

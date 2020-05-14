@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/", "/signup", "/signin", "/userlogin").permitAll()
-				.anyRequest().fullyAuthenticated().and().formLogin().permitAll();
+				.anyRequest().fullyAuthenticated().and().formLogin().defaultSuccessUrl("/profile",true);
 	}
 
 }
