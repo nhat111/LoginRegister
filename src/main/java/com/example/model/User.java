@@ -21,16 +21,16 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "user_name")
 	@Size(min = 3, max = 20)
 	@Pattern(regexp = "^[a-zA-Z0-9_]+$")
 	private String userName;
-	
+
 	@Column(name = "password")
 	@Pattern(regexp = "(?=.*?[~`!@#$%^&*()-+]).{8,}")
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
 
@@ -47,7 +47,6 @@ public class User {
 
 	@Column(name = "address")
 	private String address;
-	
 
 	public User() {
 	}
@@ -119,5 +118,4 @@ public class User {
 		this.address = address;
 	}
 
-	
 }
