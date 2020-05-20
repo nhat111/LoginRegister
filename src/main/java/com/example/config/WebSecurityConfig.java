@@ -22,15 +22,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsServiceImpl);
 	}
 
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/signup", "/signin", "/userlogin").permitAll()
+				.anyRequest().fullyAuthenticated().and().formLogin().defaultSuccessUrl("/profile", true);
+	}
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/", "/signup", "/signin", "/userlogin").permitAll()
-				.anyRequest().fullyAuthenticated().and().formLogin().defaultSuccessUrl("/profile",true);
-	}
-
 }
