@@ -1,50 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login and Registration form example</title>
-
-<link href="./css/register.css" type="text/css" rel="stylesheet" />
-
+<title>signup</title>
+<style><%@include file="/WEB-INF/css/signup.css"%></style>
 </head>
-
-<body bgcolor="#E6E6FA">
-
-	<div id="container">
-		<form method="post">
-
-			<h2>Signup</h2>
+<body>
+<form action="#" method="post">
+		<h2>Sign Up</h2>
+		<p>
+			<label for="uname" class="floatLabel">Username</label>
+			<input id="uname" name="userName" type="text">
+		</p>
+		<p>
+			<label for="password" class="floatLabel">Password</label>
+			<input id="password" name="password" type="password">
+			<span style="display: none;"> password at least 8 digit, has at least 1 special character</span>
+		</p>
+		<p>
+			<label for="fname" class="floatLabel">First Name</label>
+			<input id="fname" name="firstName" type="text">
+		</p>
+		<p>
+			<label for="lname" class="floatLabel">Last Name</label>
+			<input id="lname" name="lastName" type="text">
+		</p>
+		<p>
+			<label for="bday" class="floatLabel">Birthday</label>
+			<input id="bday" name="birthDay" type="text">
+		</p>
+		<p>
+			<label for="gender" class="floatLabel">Gender</label>
+			<input id="gender" name="gender" type="text">
+		</p>
+		<p>
+			<label for="adres" class="floatLabel">Address</label>
+			<input id="adres" name="address" type="text">
+		</p>
+		<p>
+		
+		<input type="submit" value="Sign Up" id="submit">
 			
-			<label for="uname" id="un">UserName:</label> <input type="text"
-				name="userName" id="uname"><br /> <br />
-				
-            <label for="upass" id="ps">Password:</label> <input type="password"
-				name="password" id="upass"><br /> <br />
-				
-				<label for="fname" id="un">FirstName:</label> <input type="text"
-				name="firstName" id="uname"><br /> <br />
-				
-				<label for="lname" id="un">LastName:</label> <input type="text"
-				name="lastName" id="uname"><br /> <br />
-				
-				<label for="bday" id="un">BirthDay:</label> <input type="text"
-				name="birthDay" id="uname"><br /> <br />
-				
-				<label for="gender" id="un">Gender:</label> <input type="text"
-				name="gender" id="uname"><br /> <br />
-				
-				<label for="address" id="un">Address:</label> <input type="text"
-				name="address" id="uname"><br /> <br />
-					
-			<button type="submit" value="Submit">Signup</button>
-
-			<a href="login">Login</a>
-
-		</form>
-	</div>
-
+		</p>
+	</form>
+	<!--js-->
+	<script type="text/javascript" src="js/application.js"></script>
 </body>
 </html>
